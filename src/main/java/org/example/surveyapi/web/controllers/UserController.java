@@ -20,7 +20,7 @@ public class UserController {
         return services.get(id).apply();
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<BaseResponse> createUser(@RequestBody UserRequest request){
         return services.create(request).apply();
     }

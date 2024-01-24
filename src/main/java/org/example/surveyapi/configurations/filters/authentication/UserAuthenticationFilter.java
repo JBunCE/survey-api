@@ -61,7 +61,7 @@ public class UserAuthenticationFilter extends UsernamePasswordAuthenticationFilt
 
         Date expirationDate = Date.valueOf(LocalDate.now().plusDays(jwtConfig.getTokenExpiration()));
         String token = Jwts.builder()
-                .setSubject(userDetails.getUsername())
+                .setSubject(userDetails.getName())
                 .claim("authorities", userDetails.getAuthorities())
                 .setIssuedAt(new java.util.Date())
                 .setExpiration(expirationDate)
@@ -69,7 +69,7 @@ public class UserAuthenticationFilter extends UsernamePasswordAuthenticationFilt
 
         Date refreshTokenExpirationDate = Date.valueOf(LocalDate.now().plusDays(jwtConfig.getRefreshTokenExpiration()));
         String refreshToken = Jwts.builder()
-                .setSubject(userDetails.getUsername())
+                .setSubject(userDetails.getName())
                 .setIssuedAt(new java.util.Date())
                 .setExpiration(refreshTokenExpirationDate)
                 .signWith(secretKey).compact();

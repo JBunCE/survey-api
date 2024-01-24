@@ -31,7 +31,7 @@ public class User {
     private String email;
 
     @Column(nullable = false, unique = true)
-    private String phoneNumber;
+    private Integer phoneNumber;
 
     @Column(nullable = false)
     private String password;
