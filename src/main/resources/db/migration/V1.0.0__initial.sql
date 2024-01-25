@@ -134,7 +134,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `survey_db`.`answers` (
   `answer_id` BIGINT NOT NULL,
   `title` VARCHAR(45) NOT NULL,
-  `points` VARCHAR(45) NOT NULL,
+  `points` INT NOT NULL,
   `index` ENUM('a', 'b', 'c', 'd') NOT NULL,
   `tags_tag` BIGINT NOT NULL,
   `questions_question_id` BIGINT NOT NULL,
