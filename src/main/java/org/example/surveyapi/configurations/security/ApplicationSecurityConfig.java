@@ -62,8 +62,9 @@ public class ApplicationSecurityConfig {
         /* REQUEST AUTHORIZATION */
         http.authorizeHttpRequests(auth -> {
             //API-DOCS
-            //auth.requestMatchers("/**").permitAll();
+            auth.requestMatchers("/**").permitAll();
 
+            /*
             // GENERAL
             auth.requestMatchers("/token/**").permitAll();
             auth.requestMatchers("/actuator/health").permitAll();
@@ -71,6 +72,8 @@ public class ApplicationSecurityConfig {
             // USER
             auth.requestMatchers("/users/create").permitAll();
             auth.requestMatchers("/users/{id}").hasRole("USER");
+
+             */
         });
 
         return http.httpBasic(Customizer.withDefaults()).build();
