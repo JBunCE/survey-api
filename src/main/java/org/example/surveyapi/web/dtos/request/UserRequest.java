@@ -26,7 +26,7 @@ public class UserRequest {
     private String email;
 
     @NotNull
-    private Long phoneNumber;
+    private Integer phoneNumber;
 
     @NotBlank @Size(min = 8)
     private String password;
