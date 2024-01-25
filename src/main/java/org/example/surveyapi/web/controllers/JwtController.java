@@ -18,11 +18,6 @@ public class JwtController {
     @Autowired
     private JwtService service;
 
-    @PostMapping("admin/refresh")
-    public ResponseEntity<BaseResponse> refresh(@RequestBody @Valid JwtRequest request) {
-        return service.adminTokenRefresh(request.getRefreshToken()).apply();
-    }
-
     @PostMapping("user/refresh")
     public ResponseEntity<BaseResponse> refreshUser(@RequestBody @Valid JwtRequest request) {
         return service.userTokenRefresh(request.getRefreshToken()).apply();

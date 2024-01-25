@@ -61,6 +61,9 @@ public class ApplicationSecurityConfig {
 
         /* REQUEST AUTHORIZATION */
         http.authorizeHttpRequests(auth -> {
+            //API-DOCS
+            //auth.requestMatchers("/**").permitAll();
+
             // GENERAL
             auth.requestMatchers("/token/**").permitAll();
             auth.requestMatchers("/actuator/health").permitAll();
