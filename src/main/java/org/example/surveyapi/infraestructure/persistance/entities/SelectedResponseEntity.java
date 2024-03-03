@@ -27,10 +27,10 @@ public class SelectedResponseEntity {
 
     @ManyToOne
     @JoinColumn(name = "question_id", nullable = false)
-    private QuestionEntity questionEntity;
+    private QuestionEntity question;
 
     @ManyToOne
     @JoinColumn(name = "response_id", nullable = false)
-    private ResponseEntity responseEntity;
+    private ResponseEntity response;
 
 }

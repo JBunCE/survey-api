@@ -1,5 +1,7 @@
 package org.example.surveyapi.application.survey.management.service.impl;
 
+import org.example.surveyapi.domain.models.Survey;
+import org.example.surveyapi.domain.repositories.IRecommendationRepository;
 import org.example.surveyapi.infraestructure.persistance.entities.RecommendationEntity;
 import org.example.surveyapi.infraestructure.persistance.entities.SurveyEntity;
 import org.example.surveyapi.infraestructure.repositories.jpa.IRecommendationRepositoryJpa;
@@ -13,28 +15,16 @@ import org.springframework.stereotype.Service;
 public class RecommendationServiceImpl implements IRecommendationService {
 
     @Autowired
-    private IRecommendationRepositoryJpa repository;
+    private IRecommendationRepository repository;
 
     @Autowired
     private ITagService tagService;
 
     @Override
-    public void save(Recommendation recommendation, SurveyEntity savedSurveyEntity) {
-        RecommendationEntity recommendationEntity = toRecommendation(recommendation);
+    public void save(Recommendation request, Survey savedSurvey) {
+        request.setSurvey(savedSurvey);
+        request.setTag(tagService.upsert(request.getTag()));
 
-        recommendationEntity.setTagEntity(tagService.upsert(recommendation.getTag()));
-        recommendationEntity.setSurveyEntity(savedSurveyEntity);
-
-        repository.save(recommendationEntity);
-    }
-
-
-    private RecommendationEntity toRecommendation(Recommendation recommendation) {
-        RecommendationEntity recommendationEntity = new RecommendationEntity();
-
-        recommendationEntity.setTitle(recommendation.getTitle());
-        recommendationEntity.setDescription(recommendation.getDescription());
-
-        return recommendationEntity;
+        repository.save(request);
     }
 }

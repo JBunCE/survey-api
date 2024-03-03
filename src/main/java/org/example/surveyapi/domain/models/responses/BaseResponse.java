@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 
 @Getter @Setter @Builder
 public class BaseResponse {
-
     private Object data;
     private String message;
     private Boolean success;
@@ -18,5 +17,4 @@ public class BaseResponse {
     public ResponseEntity<BaseResponse> apply() {
         return new ResponseEntity<>(this, status);
     }
-
 }

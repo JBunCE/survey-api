@@ -7,15 +7,10 @@ import java.util.List;
 
 @Getter @Setter
 public class Survey {
-
+    String id;
     String title;
-
     String description;
-
-    Long userId;
-
+    User author;
     List<Question> questions;
-
     List<Recommendation> recommendations;
-
 }

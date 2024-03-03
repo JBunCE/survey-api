@@ -6,8 +6,6 @@ import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface ISelectedResponseMapper {
-
     SelectedResponse toDomain(SelectedResponseEntity selectedResponseEntity);
     SelectedResponseEntity toEntity(SelectedResponse selectedResponse);
-
 }

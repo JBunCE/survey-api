@@ -1,7 +1,7 @@
 package org.example.surveyapi.infraestructure.web.controllers;
 
 import jakarta.validation.Valid;
-import org.example.surveyapi.application.user.managment.service.IUserServices;
+import org.example.surveyapi.application.user.managment.service.IUserService;
 import org.example.surveyapi.domain.models.responses.BaseResponse;
 import org.example.surveyapi.domain.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     @Autowired
-    private IUserServices services;
+    private IUserService services;
 
     @GetMapping("{id}")
     public ResponseEntity<BaseResponse> getUser(@PathVariable Long id){

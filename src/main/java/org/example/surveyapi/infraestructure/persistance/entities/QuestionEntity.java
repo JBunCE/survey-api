@@ -29,11 +29,11 @@ public class QuestionEntity {
 
     @ManyToOne
     @JoinColumn(name = "survey_id", nullable = false)
-    private SurveyEntity surveyEntity;
+    private SurveyEntity survey;
 
-    @OneToMany(mappedBy = "questionEntity")
-    private Set<AnswerEntity> answerEntities;
+    @OneToMany(mappedBy = "question")
+    private Set<AnswerEntity> answers;
 
-    @OneToMany(mappedBy = "questionEntity")
+    @OneToMany(mappedBy = "question")
     private Set<SelectedResponseEntity> responses;
 }

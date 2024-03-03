@@ -7,5 +7,4 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface IUserResponseMappers {
     UserResponse toUserResponse(User user);
-
 }

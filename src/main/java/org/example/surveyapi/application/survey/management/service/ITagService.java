@@ -4,6 +4,6 @@ import org.example.surveyapi.infraestructure.persistance.entities.TagEntity;
 import org.example.surveyapi.domain.models.Tag;
 
 public interface ITagService {
-    TagEntity upsert(Tag tag);
+    Tag upsert(Tag tag);
 
 }

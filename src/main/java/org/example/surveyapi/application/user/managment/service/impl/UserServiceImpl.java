@@ -2,7 +2,7 @@ package org.example.surveyapi.application.user.managment.service.impl;
 
 import lombok.NonNull;
 import org.example.surveyapi.domain.repositories.IUserRepository;
-import org.example.surveyapi.application.user.managment.service.IUserServices;
+import org.example.surveyapi.application.user.managment.service.IUserService;
 import org.example.surveyapi.domain.models.responses.BaseResponse;
 import org.example.surveyapi.domain.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserServiceImpl implements IUserServices {
+public class UserServiceImpl implements IUserService {
 
     @Autowired
     private IUserRepository repository;

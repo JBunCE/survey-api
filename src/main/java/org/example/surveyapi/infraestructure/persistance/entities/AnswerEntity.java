@@ -34,11 +34,11 @@ public class AnswerEntity {
     @Enumerated(value = EnumType.STRING)
     private Index index;
 
-    @OneToOne(mappedBy = "answerEntity")
+    @OneToOne(mappedBy = "answer")
     @JoinColumn(name = "tag_entity", nullable = false)
     private TagEntity tagEntity;
 
     @ManyToOne
     @JoinColumn(name = "question_id", nullable = false)
-    private QuestionEntity questionEntity;
+    private QuestionEntity question;
 }

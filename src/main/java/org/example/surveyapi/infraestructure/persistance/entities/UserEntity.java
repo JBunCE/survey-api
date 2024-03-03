@@ -42,7 +42,7 @@ public class UserEntity {
     @Column(nullable = false)
     private String password;
 
-    @OneToMany(mappedBy = "userEntity")
-    private Set<SurveyEntity> surveyEntities;
+    @OneToMany(mappedBy = "author")
+    private Set<SurveyEntity> surveys;
 
 }

@@ -5,7 +5,4 @@ import lombok.Setter;
 
 @Getter @Setter
 public class ResponseRequest {
-
-
-
 }

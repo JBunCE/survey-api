@@ -8,6 +8,7 @@ import org.example.surveyapi.domain.models.value.objects.Contact;
 
 @Getter @Setter
 public class User {
+    private String id;
 
     @NotBlank
     private String username;

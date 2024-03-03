@@ -31,9 +31,9 @@ public class SurveyEntity {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private UserEntity userEntity;
+    private UserEntity author;
 
-    @OneToMany(mappedBy = "surveyEntity")
-    private Set<QuestionEntity> questionEntities;
+    @OneToMany(mappedBy = "survey")
+    private Set<QuestionEntity> question;
 
 }

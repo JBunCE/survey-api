@@ -7,11 +7,9 @@ import java.util.List;
 
 @Getter @Setter
 public class Question {
-
+    private String id;
     private String title;
-
     private String description;
-
+    private Survey survey;
     private List<Answer> answers;
-
 }

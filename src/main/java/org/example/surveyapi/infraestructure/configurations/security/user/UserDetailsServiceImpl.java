@@ -1,6 +1,6 @@
 package org.example.surveyapi.infraestructure.configurations.security.user;
 
-import org.example.surveyapi.application.user.managment.service.IUserServices;
+import org.example.surveyapi.application.user.managment.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
-    private IUserServices userServices;
+    private IUserService userServices;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

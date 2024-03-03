@@ -28,10 +28,10 @@ public class TagEntity {
 
     @OneToOne
     @JoinColumn(name = "recommendation_id", nullable = false)
-    private RecommendationEntity recommendationEntity;
+    private RecommendationEntity recommendation;
 
     @OneToOne
     @JoinColumn(name = "answer_id")
-    private AnswerEntity answerEntity;
+    private AnswerEntity answer;
 
 }

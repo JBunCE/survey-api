@@ -1,5 +1,7 @@
 package org.example.surveyapi.application.survey.management.service.impl;
 
+import org.example.surveyapi.domain.models.Question;
+import org.example.surveyapi.domain.repositories.IAnswerRepository;
 import org.example.surveyapi.infraestructure.persistance.entities.AnswerEntity;
 import org.example.surveyapi.infraestructure.persistance.entities.QuestionEntity;
 import org.example.surveyapi.infraestructure.persistance.entities.TagEntity;
@@ -14,29 +16,16 @@ import org.springframework.stereotype.Service;
 public class AnswerServiceImpl implements IAnswerService {
 
     @Autowired
-    private IAnswerRepositoryJpa repository;
+    private IAnswerRepository repository;
 
     @Autowired
     private ITagService tagService;
 
     @Override
-    public void save(Answer request, QuestionEntity savedQuestionEntity) {
-        AnswerEntity answerEntity = toAnswer(request);
-        TagEntity tagEntity = tagService.upsert(request.getTag());
+    public void save(Answer request, Question question) {
+        tagService.upsert(request.getTag());
+        request.setQuestion(question);
 
-        answerEntity.setQuestionEntity(savedQuestionEntity);
-        answerEntity.setTagEntity(tagEntity);
-
-        repository.save(answerEntity);
-    }
-
-    private AnswerEntity toAnswer(Answer request) {
-        AnswerEntity answerEntity = new AnswerEntity();
-
-        answerEntity.setTitle(request.getTitle());
-        answerEntity.setIndex(request.getIndex());
-        answerEntity.setPoints(request.getPoints());
-
-        return answerEntity;
+        repository.save(request);
     }
 }

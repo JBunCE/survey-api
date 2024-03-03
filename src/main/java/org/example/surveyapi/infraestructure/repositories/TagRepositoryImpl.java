@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class TagRepositoryImpl implements ITagRepository {
@@ -40,5 +41,11 @@ public class TagRepositoryImpl implements ITagRepository {
     public List<Tag> findAll() {
         return tagRepositoryJpa.findAll().stream()
                 .map(mapper::toDomain).toList();
+    }
+
+    @Override
+    public Tag findByName(String name) {
+        TagEntity tagEntity = tagRepositoryJpa.findByName(name).orElseThrow(EntityNotFoundException::new);
+        return mapper.toDomain(tagEntity);
     }
 }

@@ -1,5 +1,6 @@
 package org.example.surveyapi.application.survey.management.service.impl;
 
+import org.example.surveyapi.domain.repositories.ITagRepository;
 import org.example.surveyapi.infraestructure.persistance.entities.TagEntity;
 import org.example.surveyapi.infraestructure.repositories.jpa.ITagRepositoryJpa;
 import org.example.surveyapi.application.survey.management.service.ITagService;
@@ -11,11 +12,11 @@ import org.springframework.stereotype.Service;
 public class TagServiceImpl implements ITagService {
 
     @Autowired
-    private ITagRepositoryJpa repository;
+    private ITagRepository repository;
 
     @Override
-    public TagEntity upsert(Tag tag) {
-        TagEntity tagEntity = repository.findByName(tag.getName()).orElse(new TagEntity());
+    public Tag upsert(Tag tag) {
+        Tag tagEntity = repository.findByName(tag.getName());
         tagEntity.setName(tag.getName());
         return repository.save(tagEntity);
     }
