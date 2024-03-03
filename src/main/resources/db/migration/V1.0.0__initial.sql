@@ -77,10 +77,10 @@ ENGINE = InnoDB;
 -- Table `survey_db`.`tags`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `survey_db`.`tags` (
-  `tag` BIGINT NOT NULL,
+  `tagEntity` BIGINT NOT NULL,
   `name` VARCHAR(45) NOT NULL,
   `description` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`tag`))
+  PRIMARY KEY (`tagEntity`))
 ENGINE = InnoDB;
 
 
@@ -104,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `survey_db`.`recommendations` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_recommendations_tags1`
     FOREIGN KEY (`tags_tag`)
-    REFERENCES `survey_db`.`tags` (`tag`)
+    REFERENCES `survey_db`.`tags` (`tagEntity`)
     ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -143,7 +143,7 @@ CREATE TABLE IF NOT EXISTS `survey_db`.`answers` (
   INDEX `fk_answer_questions1_idx` (`questions_question_id` ASC) VISIBLE,
   CONSTRAINT `fk_answer_tags1`
     FOREIGN KEY (`tags_tag`)
-    REFERENCES `survey_db`.`tags` (`tag`)
+    REFERENCES `survey_db`.`tags` (`tagEntity`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_answer_questions1`

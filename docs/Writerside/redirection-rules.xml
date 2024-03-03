@@ -7,11 +7,11 @@
     </rule>
     -->
     <rule id="16470656">
-        <description><![CDATA[Created after removal of "<api-docs.md>" from survey-api-docs]]></description>
+        <description><![CDATA[Created after removal of "<api-docs.md>" from surveyEntity-api-docs]]></description>
         <accepts>api-docs.html</accepts>
     </rule>
     <rule id="1552f0aa">
-        <description>Created after removal of "api-docs" from survey-api-docs</description>
+        <description>Created after removal of "api-docs" from surveyEntity-api-docs</description>
         <accepts>api-dcos.html</accepts>
     </rule>
 </rules>
