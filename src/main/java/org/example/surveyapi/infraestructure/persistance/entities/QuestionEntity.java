@@ -31,9 +31,9 @@ public class QuestionEntity {
     @JoinColumn(name = "survey_id", nullable = false)
     private SurveyEntity surveyEntity;
 
-    @OneToMany(mappedBy = "question")
+    @OneToMany(mappedBy = "questionEntity")
     private Set<AnswerEntity> answerEntities;
 
-    @OneToMany(mappedBy = "question")
+    @OneToMany(mappedBy = "questionEntity")
     private Set<SelectedResponseEntity> responses;
 }

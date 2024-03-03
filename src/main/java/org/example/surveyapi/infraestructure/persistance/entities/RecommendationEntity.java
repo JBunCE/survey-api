@@ -31,7 +31,7 @@ public class RecommendationEntity {
     @JoinColumn(name = "survey_id", nullable = false)
     private SurveyEntity surveyEntity;
 
-    @OneToOne(mappedBy = "recommendation")
+    @OneToOne(mappedBy = "recommendationEntity")
     @JoinColumn(name = "tag", nullable = false)
     private TagEntity tagEntity;
 

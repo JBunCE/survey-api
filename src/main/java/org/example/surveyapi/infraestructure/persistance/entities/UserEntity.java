@@ -37,11 +37,12 @@ public class UserEntity {
     private Contact contact;
 
     @OneToMany
-    private List<ResponseEntity> respons;
+    private List<ResponseEntity> response;
+
     @Column(nullable = false)
     private String password;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "userEntity")
     private Set<SurveyEntity> surveyEntities;
 
 }

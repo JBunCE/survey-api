@@ -1,5 +1,6 @@
 package org.example.surveyapi.infraestructure.web.controllers;
 
+import lombok.Getter;
 import org.example.surveyapi.application.survey.management.service.ISurveyService;
 import org.example.surveyapi.domain.models.responses.BaseResponse;
 import org.example.surveyapi.domain.models.Survey;
@@ -39,6 +40,11 @@ public class SurveyController {
     @DeleteMapping("{id}")
     private ResponseEntity<BaseResponse> delete(@PathVariable Long id) {
         return service.delete(id).apply();
+    }
+
+    @GetMapping("/")
+    public String healthCheck() {
+        return "Survey API is up and running";
     }
 
 }

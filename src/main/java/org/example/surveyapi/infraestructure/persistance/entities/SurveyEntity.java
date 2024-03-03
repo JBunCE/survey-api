@@ -33,7 +33,7 @@ public class SurveyEntity {
     @JoinColumn(name = "user_id", nullable = false)
     private UserEntity userEntity;
 
-    @OneToMany(mappedBy = "survey")
+    @OneToMany(mappedBy = "surveyEntity")
     private Set<QuestionEntity> questionEntities;
 
 }

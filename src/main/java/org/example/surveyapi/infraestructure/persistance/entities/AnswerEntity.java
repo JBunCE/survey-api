@@ -34,8 +34,8 @@ public class AnswerEntity {
     @Enumerated(value = EnumType.STRING)
     private Index index;
 
-    @OneToOne(mappedBy = "answer")
-    @JoinColumn(name = "tag", nullable = false)
+    @OneToOne(mappedBy = "answerEntity")
+    @JoinColumn(name = "tag_entity", nullable = false)
     private TagEntity tagEntity;
 
     @ManyToOne

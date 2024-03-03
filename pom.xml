@@ -152,6 +152,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+        <finalName>survey-api</finalName>
 	</build>
 
 </project>
