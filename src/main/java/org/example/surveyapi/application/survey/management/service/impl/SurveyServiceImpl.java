@@ -36,7 +36,7 @@ public class SurveyServiceImpl implements ISurveyService {
 
         return BaseResponse.builder()
                 .message("survey with id: " + surveyId)
-                .data(toSurveyResponse(surveyEntity))
+                .data(surveyEntity)
                 .success(Boolean.TRUE)
                 .statusCode(200)
                 .status(HttpStatus.OK).build();
@@ -55,7 +55,7 @@ public class SurveyServiceImpl implements ISurveyService {
 
         return BaseResponse.builder()
                 .message("The survey has been saved with id: " + savedSurveyEntity.getSurveyId())
-                .data(toSurveyResponse(savedSurveyEntity))
+                .data(surveyEntity)
                 .success(Boolean.TRUE)
                 .statusCode(200)
                 .status(HttpStatus.OK).build();
@@ -72,7 +72,7 @@ public class SurveyServiceImpl implements ISurveyService {
         repository.delete(surveyEntity);
 
         return BaseResponse.builder()
-                .data(toSurveyResponse(surveyEntity))
+                .data(surveyEntity)
                 .message("The survey has been deleted")
                 .success(Boolean.TRUE)
                 .statusCode(200)
@@ -86,18 +86,6 @@ public class SurveyServiceImpl implements ISurveyService {
         surveyEntity.setDescription(request.getDescription());
 
         return surveyEntity;
-    }
-
-    private SurveyResponse toSurveyResponse(SurveyEntity surveyEntity) {
-        SurveyResponse surveyResponse = new SurveyResponse();
-
-        surveyResponse.setId(surveyResponse.getId());
-        surveyResponse.setTitle(surveyEntity.getTitle());
-        surveyResponse.setDescription(surveyEntity.getDescription());
-        surveyResponse.setAuthorId(surveyEntity.getUserEntity().getUserId());
-        surveyResponse.setQuestionEntities(surveyEntity.getQuestionEntities());
-
-        return surveyResponse;
     }
 
 }

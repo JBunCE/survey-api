@@ -10,6 +10,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
+import org.example.surveyapi.infraestructure.persistance.entities.value.objects.Contact;
 
 import java.util.List;
 import java.util.Set;

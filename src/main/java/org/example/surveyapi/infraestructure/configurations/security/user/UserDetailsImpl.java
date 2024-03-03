@@ -26,7 +26,7 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public String getUsername() {
-        return userEntity.getEmail();
+        return userEntity.getContact().getEmail();
     }
 
     @Override

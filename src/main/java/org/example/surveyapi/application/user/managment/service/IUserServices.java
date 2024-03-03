@@ -4,12 +4,9 @@ import org.example.surveyapi.domain.models.responses.BaseResponse;
 import org.example.surveyapi.domain.models.User;
 
 public interface IUserServices {
-
     BaseResponse get(Long id);
-
     BaseResponse create(User user);
-
     BaseResponse update(User user, Long id);
-
     BaseResponse delete(Long id);
+    User findOneAndEnsureExists(Long id);
 }

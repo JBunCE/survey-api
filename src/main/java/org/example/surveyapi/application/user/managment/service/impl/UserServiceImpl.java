@@ -49,4 +49,9 @@ public class UserServiceImpl implements IUserServices {
                 .status(HttpStatus.OK)
                 .statusCode(200).build();
     }
+
+    @Override
+    public User findOneAndEnsureExists(Long id) {
+        return null;
+    }
 }
